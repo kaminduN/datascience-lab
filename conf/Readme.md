@@ -1,0 +1,1 @@
+Copy the sparkmagic file to <user home>/.sparkmagic/config.json

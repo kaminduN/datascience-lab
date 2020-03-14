@@ -1,0 +1,5 @@
+FROM spark-base-image:latest
+
+LABEL image=spark-master
+
+COPY start-master.sh /start-master.sh

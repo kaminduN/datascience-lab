@@ -1,0 +1,5 @@
+FROM spark-base-image:latest
+
+LABEL image=spark-worker
+
+COPY start-worker.sh /start-worker.sh

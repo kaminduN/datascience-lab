@@ -1,0 +1,18 @@
+FROM spark-base-image:latest
+
+LABEL image=spark-livy
+
+ENV SPARK_HOME=/spark
+
+# binaries
+# apache livy
+RUN wget --no-verbose http://archive.apache.org/dist/incubator/livy/0.7.0-incubating/apache-livy-0.7.0-incubating-bin.zip --output-document=livy.zip && \
+    unzip livy.zip && mv apache-livy-0.7.0-incubating-bin livy && \
+    mkdir /livy/logs && \
+    rm /livy.zip
+
+# template conf
+COPY ./livy.conf /tmp/
+# By default, Livy is running on the port 8998
+EXPOSE 8998
+COPY start-livy.sh /start-livy.sh
