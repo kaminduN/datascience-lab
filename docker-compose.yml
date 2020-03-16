@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   spark-master:
-    image: spark-master:latest
+    image: kana1/spark-master:latest
     container_name: spark-master
     hostname: spark-master
     ports:
@@ -16,7 +16,7 @@ services:
       - "SPARK_PUBLIC_DNS=localhost"
     command: "/start-master.sh"
   spark-worker:
-    image: spark-worker:latest
+    image: kana1/spark-worker:latest
     depends_on:
       - spark-master
     ports:
@@ -30,7 +30,7 @@ services:
       - "SPARK_WORKER_MEMORY=1g"
     command: "/start-worker.sh"
   livy-spark:
-    image: livy-spark:latest
+    image: kana1/livy-spark:latest
     container_name: livy-spark
     hostname: livy-spark
     depends_on:
